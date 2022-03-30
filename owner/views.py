@@ -21,4 +21,11 @@ class MobileListView(View):
         qs = Mobile.objects.all()
         return render(request,"mobilelist.html",{"mobiles":qs})
 
+class DetailView(View):
+    def get(self,request,*args,**kwargs):
+        qs = Mobile.objects.get(id=kwargs.get("id"))
+        return render(request,"mobiledetail.html",{"mobile":qs})
+
+
+
 
